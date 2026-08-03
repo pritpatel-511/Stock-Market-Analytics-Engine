@@ -1,4 +1,4 @@
-from src import loader
+from src import loader,stock_statistics
 import sys
 
 if __name__ == "__main__":
@@ -12,18 +12,6 @@ if __name__ == "__main__":
         sys.exit(1)
 
     for company, stock in stocks.items():
-
-        print(f"\n{'='*50}")
-        print(f"Company : {company}")
-        print(f"{'='*50}")
-
-        loader.dataset_summary(stock["summary"])
-
-        print("\nFirst 5 Dates:")
-        print(stock["dates"][:5])
-
-        print("\nFirst 5 Open Prices:")
-        print(stock["open"][:5])
-
-        print("\nFirst 5 Close Prices:")
-        print(stock["close"][:5])
+        closing_stats = stock_statistics.company_statistics(stock)
+        stock_statistics.display_statistics(company,closing_stats)
+        
