@@ -1,4 +1,4 @@
-from src import loader,stock_statistics
+from src import loader,stock_statistics,returns
 import sys
 
 if __name__ == "__main__":
@@ -14,4 +14,5 @@ if __name__ == "__main__":
     for company, stock in stocks.items():
         closing_stats = stock_statistics.company_statistics(stock)
         stock_statistics.display_statistics(company,closing_stats)
-        
+        company_returns = returns.stock_returns(stock)
+        returns.display_returns(company,company_returns)
