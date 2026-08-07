@@ -1,4 +1,4 @@
-from src import loader,stock_statistics,returns,trend
+from src import loader,stock_statistics,returns,trend,risk
 import sys
 
 if __name__ == "__main__":
@@ -18,3 +18,5 @@ if __name__ == "__main__":
         returns.display_returns(company,company_returns)
         trend_data = trend.trend_analyze(stock)
         trend.display_trend(company,trend_data)
+        risk_result = risk.calculate_risk(stock,company_returns['daily_returns'])
+        risk.display_risk(company,risk_result)

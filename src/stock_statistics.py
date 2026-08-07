@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def company_statistics(stock):
     close = stock["close"]
     trade_days = len(close)
@@ -10,34 +11,35 @@ def company_statistics(stock):
     price_range = high_close - low_close
     average_daily_range = np.mean(stock["high"] - stock["low"])
     variance = np.var(close)
-    #standard deviation
+    # standard deviation
     std_dev = np.std(close)
-    #co-efficient of variation
-    if mean!=0:
+    # co-efficient of variation
+    if mean != 0:
         cv = std_dev / mean
     else:
         cv = 0
-    percentile = np.percentile(close,[25,50,75])
+    percentile = np.percentile(close, [25, 50, 75])
 
     return {
-        "trading_days":trade_days,
-        "average_price":mean,
-        "median_price":median,
-        "highest_close":high_close,
-        "lowest_close":low_close,
-        "price_range":price_range,
-        "average_daily_range":average_daily_range,
-        "variance":variance,
-        "standard_deviation":std_dev,
-        "coefficient_of_variation":cv,
+        "trading_days": trade_days,
+        "average_price": mean,
+        "median_price": median,
+        "highest_close": high_close,
+        "lowest_close": low_close,
+        "price_range": price_range,
+        "average_daily_range": average_daily_range,
+        "variance": variance,
+        "standard_deviation": std_dev,
+        "coefficient_of_variation": cv,
         "percentiles": {
-            "25":percentile[0],
-            "50":percentile[1],
-            "75":percentile[2],
-        }
+            "25": percentile[0],
+            "50": percentile[1],
+            "75": percentile[2],
+        },
     }
 
-def display_statistics(company_name,stats):
+
+def display_statistics(company_name, stats):
     print("=" * 60)
     print(f"{company_name:^60}")
     print("=" * 60)
