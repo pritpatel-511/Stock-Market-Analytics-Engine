@@ -1,4 +1,4 @@
-from src import loader, stock_statistics, returns, trend, risk
+from src import loader, stock_statistics, returns, trend, risk, momentum
 import sys
 
 if __name__ == "__main__":
@@ -11,6 +11,7 @@ if __name__ == "__main__":
         print("No company data loaded.")
         sys.exit(1)
     trend_result = {}
+    momentum_result = {}
     for company, stock in stocks.items():
         closing_stats = stock_statistics.company_statistics(stock)
         stock_statistics.display_statistics(company, closing_stats)
@@ -24,18 +25,9 @@ if __name__ == "__main__":
         risk_result = risk.calculate_risk(stock, company_returns["daily_returns"])
         risk.display_risk(company, risk_result)
 
-    ranking = sorted(
-        trend_result.items(),
-        key=lambda item: item[1]["trend_strength_score"],
-        reverse=True,
-    )
-    print("\n" + "=" * 60)
-    print(f"{'TREND STRENGTH RANKING':^60}")
-    print("=" * 60)
-
-    for rank, (company, data) in enumerate(ranking, start=1):
-        print(
-            f"{rank:02}. {company:20}"
-            f"{data['trend_strength_score']:.2f}/100 "
-            f"{data['trend_strength']}"
-        )
+        momentum_data = momentum.calculate_momentum(stock)
+        momentum_result[company] = momentum_data
+        momentum.display_momentum(company,momentum_data)
+    
+    trend.trend_strength_ranking(trend_result)
+    momentum.companies_annualreturn_ranking(momentum_result)

@@ -143,3 +143,20 @@ def display_trend(company_name, trend_data):
     print(f"{'Bullish Day Ratio':30}- {trend_data['bullish_ratio'] * 100:.2f}%")
     print(f"{'Trend Strength Score':30}- {trend_data['trend_strength_score']:.2f}/100")
     print(f"{'Trend Strength':30}- {trend_data['trend_strength']}")
+
+def trend_strength_ranking(trend_result):
+    ranking = sorted(
+            trend_result.items(),
+            key=lambda item: item[1]["trend_strength_score"],
+            reverse=True,
+        )
+    print("\n" + "=" * 60)
+    print(f"{'TREND STRENGTH RANKING':^60}")
+    print("=" * 60)
+
+    for rank, (company, data) in enumerate(ranking, start=1):
+        print(
+            f"{rank:02}. {company:20}"
+            f"{data['trend_strength_score']:.2f}/100 "
+            f"{data['trend_strength']}"
+        )
