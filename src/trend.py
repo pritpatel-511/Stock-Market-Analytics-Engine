@@ -14,19 +14,20 @@ def trend_analyze(stock):
 
     SHORT_WINDOW = 5
     LONG_WINDOW = 20
-    SMALL_THRESHOLD = 0.01
+    SMALL_THRESHOLD = 0.5
 
-    moving_average_5 = moving_avg(close, 5)
-    moving_average_20 = moving_avg(close, 20)
+    moving_average_5 = moving_avg(close, SHORT_WINDOW)
+    moving_average_20 = moving_avg(close, LONG_WINDOW)
 
     latest_ma5 = moving_average_5[-1]
     latest_ma20 = moving_average_20[-1]
 
-    
-    if latest_ma5 > latest_ma20:
-        current_trend = "Bullish"
-    elif abs(latest_ma5 - latest_ma20) < SMALL_THRESHOLD:
+    ma_difference_pct = ((latest_ma5 - latest_ma20) / latest_ma20) * 100
+
+    if abs(ma_difference_pct) < SMALL_THRESHOLD:
         current_trend = "Sideways"
+    elif ma_difference_pct > 0:
+        current_trend = "Bullish"
     else:
         current_trend = "Bearish"
 
@@ -37,13 +38,63 @@ def trend_analyze(stock):
     lowest_ma5 = np.min(moving_average_5)
 
     offset = LONG_WINDOW - SHORT_WINDOW
-    alligned_ma5 = moving_average_5[offset:]
-    alligned_ma20 = moving_average_20
-    bullish_days = np.sum(alligned_ma5 > alligned_ma20)
-    bearish_days = np.sum(alligned_ma5 < alligned_ma20)
+    aligned_ma5 = moving_average_5[offset:]
+    aligned_ma20 = moving_average_20
+    bullish_days = np.sum(aligned_ma5 > aligned_ma20)
+    bearish_days = np.sum(aligned_ma5 < aligned_ma20)
+    total_days = bullish_days + bearish_days
 
     latest_close = close[-1]
-    trend_strength = (latest_close - latest_ma20) / latest_ma20 * 100
+    price_vs_ma20_pct = (latest_close - latest_ma20) / latest_ma20 * 100
+
+    ma_bullish = latest_ma5 > latest_ma20
+    price_bullish = latest_close > latest_ma20
+
+    trend_score = 0
+    if ma_bullish:
+        trend_score += 1
+    else:
+        trend_score -= 1
+
+    if price_bullish:
+        trend_score += 1
+    else:
+        trend_score -= 1
+
+    ma_difference = aligned_ma5 - aligned_ma20
+    golden_cross = (ma_difference[:-1] <= 0) & (ma_difference[1:] > 0)
+    death_cross = (ma_difference[:-1] >= 0) & (ma_difference[1:] < 0)
+
+    golden_cross_count = np.sum(golden_cross)
+    death_cross_count = np.sum(death_cross)
+
+    if total_days != 0:
+        bullish_ratio = bullish_days / total_days
+    else:
+        bullish_ratio = 0
+
+    cross_balance = golden_cross_count - death_cross_count
+    total_crosses = golden_cross_count + death_cross_count
+    if total_crosses != 0:
+        cross_score = (cross_balance / total_crosses + 1) / 2
+    else:
+        cross_score = 0.5
+
+    trend_score_normalized = (trend_score + 2) / 4
+    trend_strength_score = (
+        trend_score_normalized * 0.4 + bullish_ratio * 0.3 + cross_score * 0.3
+    ) * 100
+
+    if trend_strength_score >= 75:
+        trend_strength = "Strong Bullish"
+    elif trend_strength_score >= 60:
+        trend_strength = "Bullish"
+    elif trend_strength_score >= 40:
+        trend_strength = "Neutral"
+    elif trend_strength_score >= 25:
+        trend_strength = "Bearish"
+    else:
+        trend_strength = "Strong Bearish"
 
     return {
         "latest_ma5": latest_ma5,
@@ -55,10 +106,20 @@ def trend_analyze(stock):
         "lowest_ma5": lowest_ma5,
         "bullish_days": bullish_days,
         "bearish_days": bearish_days,
+        "latest_close": latest_close,
+        "price_vs_ma20_pct": price_vs_ma20_pct,
+        "trend_score": trend_score,
+        "golden_cross_count": golden_cross_count,
+        "death_cross_count": death_cross_count,
+        "cross_balance": cross_balance,
+        "cross_score": cross_score,
+        "bullish_ratio": bullish_ratio,
+        "trend_strength_score": trend_strength_score,
         "trend_strength": trend_strength,
     }
 
-def display_trend(company_name,trend_data):
+
+def display_trend(company_name, trend_data):
     print("=" * 60)
     print(f"{company_name:^60}")
     print("=" * 60)
@@ -71,5 +132,14 @@ def display_trend(company_name,trend_data):
     print(f"{'Highest 5-Days Moving Average':30}- {trend_data['highest_ma5']:.2f}")
     print(f"{'Lowest 5-Days Moving Average':30}- {trend_data['lowest_ma5']:.2f}")
     print(f"{'Total Bullish Days':30}- {trend_data['bullish_days']}")
-    print(f"{'Total Bearish Days':30}- {trend_data["bearish_days"]}")
-    print(f"{'Trend Strength'}- {trend_data['trend_strength']}")
+    print(f"{'Total Bearish Days':30}- {trend_data['bearish_days']}")
+    print(f"{'Latest Closing Price':30}- {trend_data['latest_close']:.2f}")
+    print(f"{'Price vs 20-Day MA':30}- {trend_data['price_vs_ma20_pct']:.2f}%")
+    print(f"{'Trend Score':30}- {trend_data['trend_score']}")
+    print(f"{'Golden Cross Count':30}- {trend_data['golden_cross_count']}")
+    print(f"{'Death Cross Count':30}- {trend_data['death_cross_count']}")
+    print(f"{'Cross Balance':30}- {trend_data['cross_balance']:+d}")
+    print(f"{'Cross Score':30}- {trend_data['cross_score']* 100:.2f}/100")
+    print(f"{'Bullish Day Ratio':30}- {trend_data['bullish_ratio'] * 100:.2f}%")
+    print(f"{'Trend Strength Score':30}- {trend_data['trend_strength_score']:.2f}/100")
+    print(f"{'Trend Strength':30}- {trend_data['trend_strength']}")

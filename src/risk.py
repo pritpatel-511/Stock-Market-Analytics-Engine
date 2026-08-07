@@ -1,12 +1,11 @@
 import numpy as np
 
 
-def calculate_risk(stock, daily_return):
-    returns = np.array(daily_return)
+def calculate_risk(stock, returns):
     daily_volatility = np.std(returns, ddof=1)
     annulalized_volatility = daily_volatility * np.sqrt(252)
-    maximum_gain = np.max(returns)
-    maximum_loss = np.min(returns)
+    maximum_daily_gain = np.max(returns)
+    maximum_daily_loss = np.min(returns)
 
     negative_returns = returns[returns < 0]
     if len(negative_returns) > 0:
@@ -31,8 +30,8 @@ def calculate_risk(stock, daily_return):
     return {
         "daily_volatility" : daily_volatility,
         "annualized_volatility":annulalized_volatility,
-        "maximum_gain": maximum_gain,
-        "maximum_loss": maximum_loss,
+        "maximum_daily_gain": maximum_daily_gain,
+        "maximum_daily_loss": maximum_daily_loss,
         "downside_volatility":downside_volatility,
         "maximum_drawdown": maximum_drawdown,
         "average_drawdown":average_drawdown,
@@ -46,8 +45,8 @@ def display_risk(company_name,risk_data):
 
     print(f"{'Daily Volatility':30}- {(risk_data['daily_volatility'])*100:.2f}%")
     print(f"{'Annualized Volatility':30}- {(risk_data['annualized_volatility'])*100:.2f}%")
-    print(f"{'Maximum Gain':30}- {(risk_data['maximum_gain'])*100:.2f}%")
-    print(f"{'Maximum Loss':30}- {(risk_data['maximum_loss'])*100:.2f}%")
+    print(f"{'Maximum Daily Gain':30}- {(risk_data['maximum_daily_gain'])*100:.2f}%")
+    print(f"{'Maximum Daily Loss':30}- {(risk_data['maximum_daily_loss'])*100:.2f}%")
     print(f"{'Downside Volatility':30}- {(risk_data['downside_volatility'])*100:.2f}%")
     print(f"{'Maximum Downside':30}- {(risk_data['maximum_drawdown'])*100:.2f}%")
     print(f"{'Average Downside':30}- {(risk_data['average_drawdown'])*100:.2f}%")
