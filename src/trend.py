@@ -12,6 +12,9 @@ def moving_avg(close, window):
 def trend_analyze(stock):
     close = stock["close"]
 
+    if len(close) == 0:
+        return None
+
     SHORT_WINDOW = 5
     LONG_WINDOW = 20
     SMALL_THRESHOLD = 0.5
@@ -144,12 +147,13 @@ def display_trend(company_name, trend_data):
     print(f"{'Trend Strength Score':30}- {trend_data['trend_strength_score']:.2f}/100")
     print(f"{'Trend Strength':30}- {trend_data['trend_strength']}")
 
+
 def trend_strength_ranking(trend_result):
     ranking = sorted(
-            trend_result.items(),
-            key=lambda item: item[1]["trend_strength_score"],
-            reverse=True,
-        )
+        trend_result.items(),
+        key=lambda item: item[1]["trend_strength_score"],
+        reverse=True,
+    )
     print("\n" + "=" * 60)
     print(f"{'TREND STRENGTH RANKING':^60}")
     print("=" * 60)

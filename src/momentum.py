@@ -61,6 +61,9 @@ def calculate_quarterly_return(stock):
 def calculate_momentum(stock):
     close = stock["close"]
 
+    if len(close) == 0:
+        return None
+
     first_price = close[0]
     last_price = close[-1]
 

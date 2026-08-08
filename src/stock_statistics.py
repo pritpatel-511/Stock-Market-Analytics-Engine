@@ -3,6 +3,10 @@ import numpy as np
 
 def company_statistics(stock):
     close = stock["close"]
+
+    if len(close) == 0:
+        return None
+
     trade_days = len(close)
     mean = np.mean(close)
     median = np.median(close)

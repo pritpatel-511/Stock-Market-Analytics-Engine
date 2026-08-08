@@ -3,6 +3,10 @@ import numpy as np
 
 def stock_returns(stock):
     close = np.array(stock["close"])
+
+    if len(close) == 0:
+        return None
+
     today = close[1:]
     yesterday = close[:-1]
 
