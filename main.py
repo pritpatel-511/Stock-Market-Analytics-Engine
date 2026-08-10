@@ -1,4 +1,4 @@
-from src import loader, stock_statistics, returns, trend, risk, momentum, volume
+from src import loader, stock_statistics, returns, trend, risk, momentum, volume, price_action
 import sys
 
 if __name__ == "__main__":
@@ -51,6 +51,12 @@ if __name__ == "__main__":
             print(f"No Volume Data Available for {company}")
         else:
             volume.display_volume_analysis(company,volume_data)
+
+        price_action_data = price_action.calculate_action(stock)
+        if price_action_data is None:
+            print(f"No Price Action Data available for {company}")
+        else:
+            price_action.display_price_action(company,price_action_data)
     
     trend.trend_strength_ranking(trend_result)
     momentum.companies_annualreturn_ranking(momentum_result)
