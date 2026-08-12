@@ -1,4 +1,4 @@
-from src import loader, stock_statistics, returns, trend, risk, momentum, volume, price_action,  monthly, quarterly
+from src import loader, stock_statistics, returns, trend, risk, momentum, volume, price_action,  monthly, quarterly, ranking
 import sys
 
 if __name__ == "__main__":
@@ -11,13 +11,17 @@ if __name__ == "__main__":
         print("No company data loaded.")
         sys.exit(1)
     trend_result = {}
+    stock_statistics_result = {}
     momentum_result = {}
+    risk_result = {}
+    volume_result = {}
     for company, stock in stocks.items():
 
         closing_stats = stock_statistics.company_statistics(stock)
         if closing_stats is None:
             print(f"No Closing Data Available for {company}")
         else:
+            stock_statistics_result[company] = closing_stats
             stock_statistics.display_statistics(company, closing_stats)
 
         company_returns = returns.stock_returns(stock)
@@ -33,23 +37,25 @@ if __name__ == "__main__":
         else:
             trend.display_trend(company, trend_data)
 
-        risk_result = risk.calculate_risk(stock, company_returns["daily_returns"])
-        if risk_result is None:
+        risk_data = risk.calculate_risk(stock, company_returns["daily_returns"])
+        if risk_data is None:
             print(f"No Return Data Available for {company}")
         else:
-            risk.display_risk(company, risk_result)
+            risk_result[company]= risk_data
+            risk.display_risk(company, risk_data)
 
         momentum_data = momentum.calculate_momentum(stock)
-        momentum_result[company] = momentum_data
         if momentum_data is None:
             print(f"No Momentum Data Available for {company}")
         else:
+            momentum_result[company] = momentum_data
             momentum.display_momentum(company,momentum_data)
 
         volume_data = volume.calculate_volume(stock)
         if volume_data is None:
             print(f"No Volume Data Available for {company}")
         else:
+            volume_result[company] = volume_data
             volume.display_volume_analysis(company,volume_data)
 
         price_action_data = price_action.calculate_action(stock)
@@ -71,4 +77,21 @@ if __name__ == "__main__":
             quarterly.display_quarterly_analytics(company,quarterly_data)
     
     trend.trend_strength_ranking(trend_result)
-    momentum.companies_annualreturn_ranking(momentum_result)
+
+    annual_return_ranking_data = ranking.rank_by_annual_return(momentum_result)
+    ranking.display_rank_by_annual_return(annual_return_ranking_data)
+
+    annual_volatily_ranking_data = ranking.rank_by_annual_volatility(risk_result)
+    ranking.display_rank_by_annual_volatility(annual_volatily_ranking_data)
+
+    annual_volume_ranking_data = ranking.rank_by_annual_volume(volume_result)
+    ranking.display_rank_by_annual_volume(annual_volume_ranking_data)
+    
+    average_price_ranking_data = ranking.rank_by_average_price(stock_statistics_result)
+    ranking.display_rank_by_average_price(average_price_ranking_data)
+
+    comparison_data = ranking.create_comparison_data(momentum_result,risk_result,volume_result)
+    
+    overall_ranking = ranking.calculate_overall_ranking(comparison_data)
+
+    ranking.display_overall_company_ranking(overall_ranking)
