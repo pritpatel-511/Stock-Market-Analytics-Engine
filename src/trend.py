@@ -2,11 +2,13 @@ import numpy as np
 
 
 def moving_avg(close, window):
-    moving_arr = []
-    for i in range(len(close) - window + 1):
-        ma = np.mean(close[i : i + window])
-        moving_arr.append(ma)
-    return np.array(moving_arr)
+    weights = np.ones(window) / window
+
+    sma_valid = np.convolve(close, weights, mode="valid")
+
+    padding = np.full(window - 1, np.nan)
+
+    return np.concatenate((padding, sma_valid))
 
 
 def trend_analyze(stock):
@@ -34,17 +36,16 @@ def trend_analyze(stock):
     else:
         current_trend = "Bearish"
 
-    highest_ma20 = np.max(moving_average_20)
-    lowest_ma20 = np.min(moving_average_20)
+    highest_ma20 = np.nanmax(moving_average_20)
+    lowest_ma20 = np.nanmin(moving_average_20)
 
-    highest_ma5 = np.max(moving_average_5)
-    lowest_ma5 = np.min(moving_average_5)
+    highest_ma5 = np.nanmax(moving_average_5)
+    lowest_ma5 = np.nanmin(moving_average_5)
 
-    offset = LONG_WINDOW - SHORT_WINDOW
-    aligned_ma5 = moving_average_5[offset:]
-    aligned_ma20 = moving_average_20
-    bullish_days = np.sum(aligned_ma5 > aligned_ma20)
-    bearish_days = np.sum(aligned_ma5 < aligned_ma20)
+    with np.errstate(invalid="ignore"):
+        bullish_days = np.sum(moving_average_5 > moving_average_20)
+        bearish_days = np.sum(moving_average_5 < moving_average_20)
+
     total_days = bullish_days + bearish_days
 
     latest_close = close[-1]
@@ -64,7 +65,7 @@ def trend_analyze(stock):
     else:
         trend_score -= 1
 
-    ma_difference = aligned_ma5 - aligned_ma20
+    ma_difference = moving_average_5 - moving_average_20
     golden_cross = (ma_difference[:-1] <= 0) & (ma_difference[1:] > 0)
     death_cross = (ma_difference[:-1] >= 0) & (ma_difference[1:] < 0)
 

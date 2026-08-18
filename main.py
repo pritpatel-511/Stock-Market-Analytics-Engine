@@ -1,4 +1,4 @@
-from src import loader, stock_statistics, returns, trend, risk, momentum, volume, price_action,  monthly, quarterly, ranking
+from src import loader, stock_statistics, returns, trend, risk, momentum, volume, price_action,  monthly, quarterly, ranking,signals
 import sys
 
 if __name__ == "__main__":
@@ -75,7 +75,13 @@ if __name__ == "__main__":
             print(f"No Quarterly Data available for {company}")
         else:
             quarterly.display_quarterly_analytics(company,quarterly_data)
-    
+
+        signal_data = signals.generate_ma_signals(stock)    
+        if signal_data is None:
+            print(f"Not enough data to calculate signals for {company}")
+        else:
+            signals.display_signals(company,signal_data)
+
     trend.trend_strength_ranking(trend_result)
 
     annual_return_ranking_data = ranking.rank_by_annual_return(momentum_result)
