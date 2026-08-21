@@ -1,0 +1,37 @@
+============================================================
+GOOGLE - COMPREHENSIVE ANALYTICS REPORT
+============================================================
+
+--- 1. Company Statistics---
+Trading Days                  : 251
+Average Price                 : 304.47
+Highest Price                 : 399.68
+Lowest Price                  : 188.49
+Price Volatility              : 17.34%
+
+--- 2. RISK ANALYSIS ---
+Annualized Volatility: 35.07%
+Maximum Drawdown:      -20.36%
+Max Recovery Time:     57 days
+Winning Days:          133
+Losing Days:           117
+Composite Risk Score:  31.12 / 100
+Risk Level:            Low
+
+--- 3. TREND STRENGTH ---
+Current Trend:         Bearish
+Bullish Days:          142
+Bearish Days:          90
+Trend Strength Score:  32.21 / 100
+Trend Strength:        Bearish
+
+--- 4. INVESTMENT SIGNALS (MA 20/50) ---
+Total BUY Signals:     1
+Total SELL Signals:    2
+
+Recent BUY Signals:
+  - Date: 2026-04-21 | Price: 337.49
+
+Recent SELL Signals:
+  - Date: 2026-02-26 | Price: 312.23
+  - Date: 2026-06-24 | Price: 349.04

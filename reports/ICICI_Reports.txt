@@ -1,0 +1,41 @@
+============================================================
+ICICI - COMPREHENSIVE ANALYTICS REPORT
+============================================================
+
+--- 1. Company Statistics---
+Trading Days                  : 249
+Average Price                 : 1359.04
+Highest Price                 : 1470.00
+Lowest Price                  : 1196.00
+Price Volatility              : 4.56%
+
+--- 2. RISK ANALYSIS ---
+Annualized Volatility: 22.02%
+Maximum Drawdown:      -18.59%
+Max Recovery Time:     239 days
+Winning Days:          122
+Losing Days:           126
+Composite Risk Score:  46.48 / 100
+Risk Level:            Medium
+
+--- 3. TREND STRENGTH ---
+Current Trend:         Bullish
+Bullish Days:          110
+Bearish Days:          120
+Trend Strength Score:  70.35 / 100
+Trend Strength:        Bullish
+
+--- 4. INVESTMENT SIGNALS (MA 20/50) ---
+Total BUY Signals:     4
+Total SELL Signals:    3
+
+Recent BUY Signals:
+  - Date: 2025-12-05 | Price: 1381.00
+  - Date: 2026-01-13 | Price: 1420.00
+  - Date: 2026-05-05 | Price: 1264.00
+  - Date: 2026-06-23 | Price: 1358.00
+
+Recent SELL Signals:
+  - Date: 2025-12-29 | Price: 1352.10
+  - Date: 2026-03-10 | Price: 1287.60
+  - Date: 2026-05-19 | Price: 1251.10

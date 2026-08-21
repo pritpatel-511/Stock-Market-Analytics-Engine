@@ -1,0 +1,39 @@
+============================================================
+TCS - COMPREHENSIVE ANALYTICS REPORT
+============================================================
+
+--- 1. Company Statistics---
+Trading Days                  : 250
+Average Price                 : 2689.03
+Highest Price                 : 3287.16
+Lowest Price                  : 1997.05
+Price Volatility              : 13.41%
+
+--- 2. RISK ANALYSIS ---
+Annualized Volatility: 28.80%
+Maximum Drawdown:      -39.25%
+Max Recovery Time:     123 days
+Winning Days:          115
+Losing Days:           133
+Composite Risk Score:  35.86 / 100
+Risk Level:            Medium
+
+--- 3. TREND STRENGTH ---
+Current Trend:         Bullish
+Bullish Days:          101
+Bearish Days:          130
+Trend Strength Score:  68.12 / 100
+Trend Strength:        Bullish
+
+--- 4. INVESTMENT SIGNALS (MA 20/50) ---
+Total BUY Signals:     3
+Total SELL Signals:    2
+
+Recent BUY Signals:
+  - Date: 2025-11-14 | Price: 2977.90
+  - Date: 2026-05-06 | Price: 2396.10
+  - Date: 2026-07-30 | Price: 2440.00
+
+Recent SELL Signals:
+  - Date: 2026-02-06 | Price: 2920.77
+  - Date: 2026-05-07 | Price: 2392.46

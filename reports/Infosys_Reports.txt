@@ -1,0 +1,37 @@
+============================================================
+INFOSYS - COMPREHENSIVE ANALYTICS REPORT
+============================================================
+
+--- 1. Company Statistics---
+Trading Days                  : 250
+Average Price                 : 1347.38
+Highest Price                 : 1690.62
+Lowest Price                  : 1006.00
+Price Volatility              : 13.52%
+
+--- 2. RISK ANALYSIS ---
+Annualized Volatility: 32.29%
+Maximum Drawdown:      -40.50%
+Max Recovery Time:     123 days
+Winning Days:          117
+Losing Days:           132
+Composite Risk Score:  38.20 / 100
+Risk Level:            Medium
+
+--- 3. TREND STRENGTH ---
+Current Trend:         Bullish
+Bullish Days:          127
+Bearish Days:          104
+Trend Strength Score:  71.49 / 100
+Trend Strength:        Bullish
+
+--- 4. INVESTMENT SIGNALS (MA 20/50) ---
+Total BUY Signals:     1
+Total SELL Signals:    2
+
+Recent BUY Signals:
+  - Date: 2025-11-03 | Price: 1450.90
+
+Recent SELL Signals:
+  - Date: 2025-10-17 | Price: 1402.61
+  - Date: 2026-02-12 | Price: 1398.63

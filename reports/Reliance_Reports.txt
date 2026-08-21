@@ -1,0 +1,39 @@
+============================================================
+RELIANCE - COMPREHENSIVE ANALYTICS REPORT
+============================================================
+
+--- 1. Company Statistics---
+Trading Days                  : 250
+Average Price                 : 1400.18
+Highest Price                 : 1585.67
+Lowest Price                  : 1258.00
+Price Volatility              : 5.70%
+
+--- 2. RISK ANALYSIS ---
+Annualized Volatility: 23.58%
+Maximum Drawdown:      -20.66%
+Max Recovery Time:     143 days
+Winning Days:          121
+Losing Days:           127
+Composite Risk Score:  34.84 / 100
+Risk Level:            Medium
+
+--- 3. TREND STRENGTH ---
+Current Trend:         Bearish
+Bullish Days:          102
+Bearish Days:          129
+Trend Strength Score:  47.36 / 100
+Trend Strength:        Neutral
+
+--- 4. INVESTMENT SIGNALS (MA 20/50) ---
+Total BUY Signals:     2
+Total SELL Signals:    3
+
+Recent BUY Signals:
+  - Date: 2025-10-23 | Price: 1468.21
+  - Date: 2026-05-12 | Price: 1385.59
+
+Recent SELL Signals:
+  - Date: 2025-10-14 | Price: 1373.65
+  - Date: 2026-01-16 | Price: 1452.09
+  - Date: 2026-06-02 | Price: 1301.68

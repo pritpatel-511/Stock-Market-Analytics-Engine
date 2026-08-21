@@ -1,0 +1,38 @@
+============================================================
+MICROSOFT - COMPREHENSIVE ANALYTICS REPORT
+============================================================
+
+--- 1. Company Statistics---
+Trading Days                  : 251
+Average Price                 : 448.84
+Highest Price                 : 550.83
+Lowest Price                  : 357.15
+Price Volatility              : 11.87%
+
+--- 2. RISK ANALYSIS ---
+Annualized Volatility: 30.42%
+Maximum Drawdown:      -35.16%
+Max Recovery Time:     250 days
+Winning Days:          118
+Losing Days:           132
+Composite Risk Score:  53.69 / 100
+Risk Level:            Medium
+
+--- 3. TREND STRENGTH ---
+Current Trend:         Bullish
+Bullish Days:          98
+Bearish Days:          134
+Trend Strength Score:  68.83 / 100
+Trend Strength:        Bullish
+
+--- 4. INVESTMENT SIGNALS (MA 20/50) ---
+Total BUY Signals:     2
+Total SELL Signals:    2
+
+Recent BUY Signals:
+  - Date: 2025-10-10 | Price: 516.37
+  - Date: 2026-04-28 | Price: 423.65
+
+Recent SELL Signals:
+  - Date: 2025-11-20 | Price: 490.53
+  - Date: 2026-06-23 | Price: 372.38

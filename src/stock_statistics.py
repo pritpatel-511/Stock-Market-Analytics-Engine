@@ -28,8 +28,8 @@ def company_statistics(stock):
         "trading_days": trade_days,
         "average_price": mean,
         "median_price": median,
-        "highest_close": high_close,
-        "lowest_close": low_close,
+        "highest_price": high_close,
+        "lowest_price": low_close,
         "price_range": price_range,
         "average_daily_range": average_daily_range,
         "variance": variance,
@@ -51,8 +51,8 @@ def display_statistics(company_name, stats):
     print(f"{'Trading Days':30} : {stats['trading_days']}")
     print(f"{'Average Price':30} : {stats['average_price']:.2f}")
     print(f"{'Median Price':30} : {stats['median_price']:.2f}")
-    print(f"{'Highest Closing':30} : {stats['highest_close']:.2f}")
-    print(f"{'Lowest Closing':30} : {stats['lowest_close']:.2f}")
+    print(f"{'Highest Closing':30} : {stats['highest_price']:.2f}")
+    print(f"{'Lowest Closing':30} : {stats['lowest_price']:.2f}")
     print(f"{'Price Range':30} : {stats['price_range']:.2f}")
     print(f"{'Average Daily Range':30} : {stats['average_daily_range']:.2f}")
     print(f"{'Variance':30} : {stats['variance']:.2f}")

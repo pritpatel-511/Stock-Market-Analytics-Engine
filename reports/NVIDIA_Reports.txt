@@ -1,0 +1,39 @@
+============================================================
+NVIDIA - COMPREHENSIVE ANALYTICS REPORT
+============================================================
+
+--- 1. Company Statistics---
+Trading Days                  : 251
+Average Price                 : 190.18
+Highest Price                 : 229.60
+Lowest Price                  : 166.78
+Price Volatility              : 7.26%
+
+--- 2. RISK ANALYSIS ---
+Annualized Volatility: 35.80%
+Maximum Drawdown:      -19.75%
+Max Recovery Time:     118 days
+Winning Days:          125
+Losing Days:           125
+Composite Risk Score:  39.67 / 100
+Risk Level:            Medium
+
+--- 3. TREND STRENGTH ---
+Current Trend:         Bearish
+Bullish Days:          116
+Bearish Days:          116
+Trend Strength Score:  30.00 / 100
+Trend Strength:        Bearish
+
+--- 4. INVESTMENT SIGNALS (MA 20/50) ---
+Total BUY Signals:     2
+Total SELL Signals:    3
+
+Recent BUY Signals:
+  - Date: 2026-01-15 | Price: 186.27
+  - Date: 2026-04-23 | Price: 202.22
+
+Recent SELL Signals:
+  - Date: 2025-12-02 | Price: 181.53
+  - Date: 2026-03-03 | Price: 178.27
+  - Date: 2026-06-25 | Price: 200.08

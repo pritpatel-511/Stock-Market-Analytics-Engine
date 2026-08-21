@@ -1,0 +1,37 @@
+============================================================
+HDFC - COMPREHENSIVE ANALYTICS REPORT
+============================================================
+
+--- 1. Company Statistics---
+Trading Days                  : 250
+Average Price                 : 879.35
+Highest Price                 : 1000.94
+Lowest Price                  : 718.12
+Price Volatility              : 10.64%
+
+--- 2. RISK ANALYSIS ---
+Annualized Volatility: 25.84%
+Maximum Drawdown:      -28.26%
+Max Recovery Time:     167 days
+Winning Days:          120
+Losing Days:           129
+Composite Risk Score:  39.59 / 100
+Risk Level:            Medium
+
+--- 3. TREND STRENGTH ---
+Current Trend:         Bearish
+Bullish Days:          88
+Bearish Days:          143
+Trend Strength Score:  26.43 / 100
+Trend Strength:        Bearish
+
+--- 4. INVESTMENT SIGNALS (MA 20/50) ---
+Total BUY Signals:     2
+Total SELL Signals:    1
+
+Recent BUY Signals:
+  - Date: 2025-10-24 | Price: 994.55
+  - Date: 2026-06-29 | Price: 800.00
+
+Recent SELL Signals:
+  - Date: 2025-12-29 | Price: 976.94

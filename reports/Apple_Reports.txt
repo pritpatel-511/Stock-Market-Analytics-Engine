@@ -1,0 +1,40 @@
+============================================================
+APPLE - COMPREHENSIVE ANALYTICS REPORT
+============================================================
+
+--- 1. Company Statistics---
+Trading Days                  : 251
+Average Price                 : 268.61
+Highest Price                 : 340.03
+Lowest Price                  : 202.60
+Price Volatility              : 9.94%
+
+--- 2. RISK ANALYSIS ---
+Annualized Volatility: 24.89%
+Maximum Drawdown:      -13.58%
+Max Recovery Time:     105 days
+Winning Days:          140
+Losing Days:           110
+Composite Risk Score:  30.62 / 100
+Risk Level:            Low
+
+--- 3. TREND STRENGTH ---
+Current Trend:         Bullish
+Bullish Days:          150
+Bearish Days:          82
+Trend Strength Score:  74.40 / 100
+Trend Strength:        Bullish
+
+--- 4. INVESTMENT SIGNALS (MA 20/50) ---
+Total BUY Signals:     3
+Total SELL Signals:    3
+
+Recent BUY Signals:
+  - Date: 2026-02-24 | Price: 267.61
+  - Date: 2026-04-24 | Price: 272.51
+  - Date: 2026-07-10 | Price: 314.72
+
+Recent SELL Signals:
+  - Date: 2026-01-08 | Price: 256.54
+  - Date: 2026-03-13 | Price: 255.24
+  - Date: 2026-07-09 | Price: 310.51
