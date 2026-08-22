@@ -22,18 +22,18 @@ def rank_by_annual_volatility(risk_result):
     ranking = sorted(
         risk_result.items(),
         key=lambda item: item[1]["annualized_volatility"],
-        reverse=True,
+        reverse=False,
     )
     return ranking
 
 
 def display_rank_by_annual_volatility(annual_volatility_ranking_data):
     print("\n" + "=" * 60)
-    print(f"{'Annual Volatility - HIGHEST TO LOWEST':^60}")
+    print(f"{'Annual Volatility(Risk) - LOWEST TO HIGHEST':^60}")
     print("=" * 60)
 
     for rank, (company, data) in enumerate(annual_volatility_ranking_data, start=1):
-        print(f"{rank:02}. {company:20}{data['annualized_volatility']:.2f}")
+        print(f"{rank:02}. {company:20}{data['annualized_volatility']*100:.2f}%")
 
 
 def rank_by_annual_volume(volume_result):

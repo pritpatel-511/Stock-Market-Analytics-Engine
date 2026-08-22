@@ -1,0 +1,40 @@
+============================================================
+                 MARKET SUMMARY REPORT
+============================================================
+
+--- TOP STOCKS (OVERALL SCORE) ---
+01. Apple                - Score: 73.64/100
+02. Google               - Score: 55.14/100
+03. ICICI                - Score: 42.86/100
+04. Reliance             - Score: 37.22/100
+05. NVIDIA               - Score: 35.67/100
+06. HDFC                 - Score: 24.74/100
+07. Amazon               - Score: 24.34/100
+08. TCS                  - Score: 18.17/100
+09. Microsoft            - Score: 16.75/100
+10. Infosys              - Score: 8.95/100
+
+--- HIGHEST ANNUAL RETURN ---
+01. Google               - Return: 71.25%
+02. Apple                - Return: 60.40%
+03. NVIDIA               - Return: 5.91%
+04. Amazon               - Return: -1.03%
+05. ICICI                - Return: -1.67%
+06. Reliance             - Return: -5.90%
+07. TCS                  - Return: -18.33%
+08. Microsoft            - Return: -20.50%
+09. Infosys              - Return: -23.12%
+10. HDFC                 - Return: -23.91%
+
+--- LOWEST RISK (ANNUAL VOLATILITY) ---
+01. ICICI                - Volatility: 22.02%
+02. Reliance             - Volatility: 23.58%
+03. Apple                - Volatility: 24.89%
+04. HDFC                 - Volatility: 25.84%
+05. TCS                  - Volatility: 28.80%
+06. Microsoft            - Volatility: 30.42%
+07. Infosys              - Volatility: 32.29%
+08. Amazon               - Volatility: 32.54%
+09. Google               - Volatility: 35.07%
+10. NVIDIA               - Volatility: 35.80%
+

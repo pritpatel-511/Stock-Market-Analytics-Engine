@@ -82,3 +82,42 @@ def generate_company_reports(
                 file.write("  - No Sell Signals generated.\n")
 
     print(f"Report Successfully Generated: {file_path}")
+
+
+def generate_market_summary(overall_ranking,return_ranking,risk_ranking,output_dir='reports'):
+    """
+    Generates a master summary file ranking all companies across key metrics.
+    """
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+    
+    file_path = os.path.join(output_dir,f"Market_Summary.txt")
+
+    with open(file_path,'w') as file:
+        file.write("============================================================\n")
+        file.write("                 MARKET SUMMARY REPORT\n")
+        file.write("============================================================\n\n")
+
+        # --- OVERALL RANKING ---
+        file.write("--- TOP STOCKS (OVERALL SCORE) ---\n")
+        if overall_ranking:
+            for rank, data in enumerate(overall_ranking, start=1):
+                file.write(f"{rank:02d}. {data['company']:20} - Score: {data['overall_score']*100:.2f}/100\n")
+        file.write("\n")
+
+        # --- HIGHEST RETURN RANKING ---
+        file.write("--- HIGHEST ANNUAL RETURN ---\n")
+        if return_ranking:
+            for rank, (company, data) in enumerate(return_ranking, start=1):
+                file.write(f"{rank:02d}. {company:20} - Return: {data['annual_return']:.2f}%\n")
+        file.write("\n")
+
+        # --- LOWEST RISK RANKING ---
+        file.write("--- LOWEST RISK (ANNUAL VOLATILITY) ---\n")
+        if risk_ranking:
+            # Note: risk_ranking is sorted ascending (lowest risk first)
+            for rank, (company, data) in enumerate(risk_ranking, start=1):
+                file.write(f"{rank:02d}. {company:20} - Volatility: {data['annualized_volatility']*100:.2f}%\n")
+        file.write("\n")
+
+    print(f"✅ Market Summary Generated: {file_path}")

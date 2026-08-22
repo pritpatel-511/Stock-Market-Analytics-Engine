@@ -125,3 +125,9 @@ if __name__ == "__main__":
     overall_ranking = ranking.calculate_overall_ranking(comparison_data)
 
     ranking.display_overall_company_ranking(overall_ranking)
+
+    reports.generate_market_summary(
+        overall_ranking=overall_ranking,
+        return_ranking=annual_return_ranking_data,
+        risk_ranking=annual_volatily_ranking_data,
+    )
