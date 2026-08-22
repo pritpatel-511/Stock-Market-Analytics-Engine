@@ -123,10 +123,10 @@ def trend_analyze(stock):
     }
 
 
-def display_trend(company_name, trend_data):
-    print("=" * 60)
-    print(f"{company_name:^60}")
-    print("=" * 60)
+def display_trend(trend_data):
+    print("\n" + "━" * 60)
+    print(" 🚀 TREND & MOVING AVERAGES")
+    print("━" * 60)
 
     print(f"{'Latest 5-Days Moving Average':30}- {trend_data['latest_ma5']:.2f}")
     print(f"{'Latest 20-Days Moving Average':30}- {trend_data['latest_ma20']:.2f}")

@@ -87,10 +87,10 @@ def calculate_momentum(stock):
     }
 
 
-def display_momentum(company_name, momentum_data):
-    print("=" * 60)
-    print(f"{company_name:^60}")
-    print("=" * 60)
+def display_momentum(momentum_data):
+    print("\n" + "━" * 60)
+    print(" ⚡ MOMENTUM & PERFORMANCE")
+    print("━" * 60)
 
     print(f"{'First Price':30}- {momentum_data['first_price']:.2f}")
     print(f"{'Last Price':30}- {momentum_data['last_price']:.2f}")
@@ -106,19 +106,15 @@ def display_momentum(company_name, momentum_data):
     for quarter, value in momentum_data["quarterly_returns"].items():
         print(f"{quarter:30}- {value:.2f}%")
 
+
 def companies_annualreturn_ranking(momentum_result):
     ranking = sorted(
-        momentum_result.items(),
-        key = lambda item : item[1]["annual_return"],
-        reverse = True
+        momentum_result.items(), key=lambda item: item[1]["annual_return"], reverse=True
     )
 
-    print("\n" + "=" * 60)
+    print("\n" + "━" * 60)
     print(f"{'ANNUAL RETURN RANKING':^60}")
-    print("=" * 60)
+    print("━" * 60)
 
-    for rank,(company,data) in enumerate(ranking,start=1):
-        print(
-            f"{rank:02}. {company:20}"
-            f"{data["annual_return"]:.2f}%"
-        )
+    for rank, (company, data) in enumerate(ranking, start=1):
+        print(f"{rank:02}. {company:20}" f"{data["annual_return"]:.2f}%")

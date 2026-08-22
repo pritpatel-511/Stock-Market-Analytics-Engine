@@ -43,10 +43,10 @@ def company_statistics(stock):
     }
 
 
-def display_statistics(company_name, stats):
-    print("=" * 60)
-    print(f"{company_name:^60}")
-    print("=" * 60)
+def display_statistics(stats):
+    print("\n" + "━" * 60)
+    print("📊 COMPANY STATISTICS & VARIANCES")
+    print("━" * 60)
 
     print(f"{'Trading Days':30} : {stats['trading_days']}")
     print(f"{'Average Price':30} : {stats['average_price']:.2f}")
@@ -66,6 +66,3 @@ def display_statistics(company_name, stats):
     print(f"{'25th Percentile':30} : {stats['percentiles']['25']:.2f}")
     print(f"{'50th Percentile (Median)':30} : {stats['percentiles']['50']:.2f}")
     print(f"{'75th Percentile':30} : {stats['percentiles']['75']:.2f}")
-
-    print("=" * 60)
-    print()

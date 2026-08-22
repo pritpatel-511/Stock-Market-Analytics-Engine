@@ -39,10 +39,10 @@ def calculate_volume(stock):
     }
 
 
-def display_volume_analysis(company_name, volume_data):
-    print("=" * 60)
-    print(f"{company_name:^60}")
-    print("=" * 60)
+def display_volume_analysis(volume_data):
+    print("\n" + "━" * 60)
+    print(" 🌊 VOLUME ANALYTICS")
+    print("━" * 60)
 
     print(f"{'Average Volume':30}- {volume_data['average_volume']:.2f}")
     print(f"{'Highest Volume':30}- {volume_data['highest_volume']}")

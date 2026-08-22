@@ -41,14 +41,14 @@ def stock_returns(stock):
         "zero_return_days": zero_returns_days,
         "return_volatility": return_volatility,
         "winning_percentage": winning_percentage,
-        "cumulative_return": cumulative_return
+        "cumulative_return": cumulative_return,
     }
 
 
-def display_returns(company_name, stock_returns):
-    print("=" * 60)
-    print(f"{company_name:^60}")
-    print("=" * 60)
+def display_returns(stock_returns):
+    print("\n" + "━" * 60)
+    print(" 📈 DAILY RETURNS ANALYSIS")
+    print("━" * 60)
 
     print(f"{'Daily Returns':30}: {len(stock_returns['daily_returns'])} Values")
     print(f"{'Average Returns':30}: {(stock_returns['average_return'])*100:.2f}%")

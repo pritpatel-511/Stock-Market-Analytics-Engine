@@ -32,23 +32,24 @@ def generate_ma_signals(stock, short_window=20, long_window=50):
 
     return {
         "short_window": short_window,
-        "long_window":long_window,
-        "buy_signals":buy_signals,
-        "sell_signals" : sell_signals,
-        "total_buys" :len(buy_signals),
-        "total_sells":len(sell_signals)
+        "long_window": long_window,
+        "buy_signals": buy_signals,
+        "sell_signals": sell_signals,
+        "total_buys": len(buy_signals),
+        "total_sells": len(sell_signals),
     }
 
-def display_signals(company_name,signal_data):
-    if signal_data is None:
-        print(f"Not enough data to calculate signals for {company_name}")
-        return
-    
-    print("\n"+"="*60)
-    print(f"{company_name} - INVESTMENT SIGNALS (MA {signal_data['short_window']}/{signal_data['long_window']})")
-    print("="*60)
 
-    print(f"{'Total BUY Signals':30}- {signal_data['total_buys']}" )
+def display_signals(signal_data):
+    if signal_data is None:
+        print(f"Not enough data to calculate signals")
+        return
+
+    print("\n" + "━" * 60)
+    print(" 📅 QUARTERLY BREAKDOWN")
+    print("━" * 60)
+
+    print(f"{'Total BUY Signals':30}- {signal_data['total_buys']}")
     print(f"{'Total SELL Signals':30}- {signal_data['total_sells']}")
     print("-" * 60)
 
@@ -65,4 +66,3 @@ def display_signals(company_name,signal_data):
             print(f"Date: {signal['date']} | Price: {signal['price']:.2f}")
     else:
         print("No Sell Signals generated.")
-    print("=" * 60)

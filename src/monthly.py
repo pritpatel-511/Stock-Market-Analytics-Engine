@@ -65,10 +65,10 @@ def calculate_monthly_analytics(stock):
         "worst_month":worst_month
     }
 
-def display_monthly(company_name,monthly_data):
-    print("=" * 60)
-    print(f"{company_name:^60}")
-    print("=" * 60)
+def display_monthly(monthly_data):
+    print("\n" + "━" * 60)
+    print(" 📅 MONTHLY BREAKDOWN")
+    print("━" * 60)
 
     for month,data in monthly_data['monthly_data'].items():
 
@@ -79,7 +79,7 @@ def display_monthly(company_name,monthly_data):
         print(f"{'Monthly Return':30}- {data['monthly_return']:.2f}%")
         print(f"{'Total Volume':30}- {data['total_volume']}")
 
-        print("-"*80)
+        print("-"*60)
 
     print(f"{'Best Month':30}- {monthly_data['best_month']}")
     print(f"{'Worst Month':30}- {monthly_data['worst_month']}")

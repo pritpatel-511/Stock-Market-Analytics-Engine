@@ -73,15 +73,15 @@ def calculate_risk(stock, returns):
         "longest_winning_streak": longest_winning_streak,
         "longest_losing_streak": longest_losing_streak,
         "maximum_recovery_days": maximum_recovery_days,
-        "risk_score":float(risk_score),
+        "risk_score": float(risk_score),
         "risk_level": risk_level,
     }
 
 
-def display_risk(company_name, risk_data):
-    print("=" * 60)
-    print(f"{company_name:^60}")
-    print("=" * 60)
+def display_risk(risk_data):
+    print("\n" + "━" * 60)
+    print(" 🛡️ RISK & DRAWDOWN ENGINE")
+    print("━" * 60)
 
     print(f"{'Daily Volatility':30}- {(risk_data['daily_volatility'])*100:.2f}%")
     print(
@@ -101,4 +101,3 @@ def display_risk(company_name, risk_data):
     print("-" * 60)
     print(f"{'Composite Risk Score':30}- {risk_data['risk_score']:.2f} / 100")
     print(f"{'Risk Level':30}- {risk_data['risk_level']}")
-    print("="*60)

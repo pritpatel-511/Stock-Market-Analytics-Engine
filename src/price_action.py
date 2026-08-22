@@ -26,7 +26,6 @@ def calculate_action(stock):
     biggest_intraday_move_day = np.argmax(daily_range)
     biggest_intraday_move_date = stock["dates"][biggest_intraday_move_day]
 
-
     open_price = stock["open"]
     close = stock["close"]
 
@@ -67,10 +66,10 @@ def calculate_action(stock):
     }
 
 
-def display_price_action(company_name, price_action_data):
-    print("=" * 60)
-    print(f"{company_name:^60}")
-    print("=" * 60)
+def display_price_action(price_action_data):
+    print("\n" + "━" * 60)
+    print(" 🎯 PRICE ACTION & INTRADAY MOVEMENT")
+    print("━" * 60)
 
     print(f"{'Highest High':30}- {price_action_data['highest_high']:.2f}")
     print(f"{'Lowest Low':30}- {price_action_data['lowest_low']:.2f}")
@@ -83,7 +82,9 @@ def display_price_action(company_name, price_action_data):
     print(
         f"{'Biggest Intraday Move Date':30}- {price_action_data['biggest_intraday_move_date']}"
     )
-    print(f"{'Average Intraday Range Percentage':30}- {price_action_data['average_intraday_range_pct']:.2f}%")
+    print(
+        f"{'Average Intraday Range Percentage':30}- {price_action_data['average_intraday_range_pct']:.2f}%"
+    )
     print(f"{'Gap Up Days':30}- {price_action_data['gap_up_days']}")
     print(f"{'Gap Down Days':30}- {price_action_data['gap_down_days']}")
     print(

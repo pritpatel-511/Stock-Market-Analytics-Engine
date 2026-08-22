@@ -4,7 +4,7 @@ import numpy as np
 def calculate_quarterly_analytics(stock):
     dates = stock["dates"]
     dates = dates.astype("datetime64[D]")
-    
+
     month_number = (
         dates.astype("datetime64[M]") - dates.astype("datetime64[Y]")
     ).astype(int) + 1
@@ -70,10 +70,10 @@ def calculate_quarterly_analytics(stock):
     }
 
 
-def display_quarterly_analytics(company_name, quarterly_data):
-    print("=" * 60)
-    print(f"{company_name:^60}")
-    print("=" * 60)
+def display_quarterly_analytics(quarterly_data):
+    print("\n" + "━" * 60)
+    print(" 📅 QUARTERLY BREAKDOWN")
+    print("━" * 60)
 
     for quarter, data in quarterly_data["quarterly_data"].items():
         print(f"\n{quarter}\n")
@@ -83,6 +83,6 @@ def display_quarterly_analytics(company_name, quarterly_data):
         print(f"{'Average Price':30}- {data['average_price']:.2f}")
         print(f"{'Highest Price':30}- {data['highest_price']:.2f}")
         print(f"{'Lowest Price':30}- {data['lowest_price']:.2f}")
-    print("-" * 80)
+    print("-" * 60)
     print(f"{'Best Quarter':30}- {quarterly_data['best_quarter']}")
     print(f"{'Worst Quarter':30}- {quarterly_data['worst_quarter']}")
